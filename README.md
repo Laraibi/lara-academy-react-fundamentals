@@ -1,6 +1,6 @@
-# React JS — Lara Academy · Projet de départ
+# React JS — Lara Academy · Solution complète
 
-La mise en page Tailwind, le catalogue et les petits composants sont fournis pour se concentrer sur React. Les boutons et la recherche sont volontairement désactivés avant leur connexion. Le panier commence vide. Les fonctions JavaScript de panier sont fournies dans `src/cart.mjs`.
+Le panier partagé, les quantités, le retrait, la recherche contrôlée et le compteur sont connectés. Le panier se réinitialise au rechargement : aucune persistance ni API distante ne fait partie de cet épisode.
 
 ## Lancer le projet
 
@@ -31,7 +31,7 @@ Le style est déjà prêt : Tailwind CSS 4.3.3, plugin Vite officiel, thème dan
 6. Remplacer la recherche statique par `useState('')`, connecter `value` et `onChange`, puis filtrer `PRODUCTS`. Tester les majuscules, les espaces et une recherche sans résultat.
 7. Ajouter le défi « Vider le panier » : tester rempli, déjà vide, puis un nouvel ajout.
 
-La branche `solution` contient le résultat du cours. Pour la consulter sans perdre ses exercices, cloner le dépôt dans un deuxième dossier avec `git clone --branch solution https://github.com/Laraibi/lara-academy-react-fundamentals.git boutique-solution`, puis `npm ci` et `npm run dev` dans ce deuxième dossier. Remplacer `https://github.com/Laraibi/lara-academy-react-fundamentals.git` par l’adresse GitHub du dépôt.
+La branche `solution` contient le résultat du cours. Pour la consulter sans perdre ses exercices, cloner le dépôt dans un deuxième dossier avec `git clone --branch solution URL_DU_DEPOT boutique-solution`, puis `npm ci` et `npm run dev` dans ce deuxième dossier. Remplacer `URL_DU_DEPOT` par l’adresse GitHub du dépôt.
 
 ## Vérifier son travail
 
@@ -46,8 +46,7 @@ npm run preview
 
 Les versions directes sont fixées et `package-lock.json` est fourni. Utiliser `npm ci` pour retrouver l’installation vérifiée. Aucun serveur, paiement ou compte n’est nécessaire. Le premier `npm ci` nécessite une connexion à npm.
 
-## Partager sa version
 
-Créer un fork, travailler dans une branche dédiée et ouvrir une pull request avec une description et les vérifications réalisées. Les personnages du cours sont fictifs ; les écrans GitHub de leur équipe sont des simulations pédagogiques. Les commandes Git sont exécutées sur de vrais dépôts locaux.
+Dépôt officiel : https://github.com/Laraibi/lara-academy-react-fundamentals
 
-Lara Academy · https://laraibi.com
+Lara Academy : https://laraibi.com
