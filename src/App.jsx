@@ -1,15 +1,22 @@
+import { useState } from 'react';
 import ProductCard from './ProductCard.jsx';
 import Cart from './Cart.jsx';
-import { PRODUCTS } from './cart.mjs';
+import { PRODUCTS, addItem, removeOne } from './cart.mjs';
 
 export default function App() {
-  // Étape 1 : lire ProductCard et identifier product transmis en props.
-  // TODO 2 : remplacer le compteur statique dans Counter.jsx par useState.
-  // TODO 3 : remplacer cart par useState([]), puis relier handleAdd / handleRemove.
-  // TODO 4 : remplacer query par useState(''), puis filtrer PRODUCTS.
-  const cart = [];
-  const query = '';
-  const visibleProducts = PRODUCTS;
+  const [cart, setCart] = useState([]);
+  const [query, setQuery] = useState('');
+  const visibleProducts = PRODUCTS.filter(product =>
+    product.name.toLowerCase().includes(query.trim().toLowerCase())
+  );
+
+  function handleRemove(id) {
+    setCart(previous => removeOne(previous, id));
+  }
+
+  function handleAdd(product) {
+    setCart(previous => addItem(previous, product));
+  }
 
   return (
     <main className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:py-12">
@@ -28,17 +35,17 @@ export default function App() {
             id="search"
             type="search"
             value={query}
-            disabled placeholder="À connecter pendant le cours"
+            onChange={event => setQuery(event.target.value)}
           />
           {visibleProducts.length === 0 ? <p className="text-muted">Aucun produit trouvé.</p> : (
             <div className="grid gap-4 sm:grid-cols-3">
               {visibleProducts.map(product => (
-                <ProductCard key={product.id} product={product}  />
+                <ProductCard key={product.id} product={product} onAdd={handleAdd} />
               ))}
             </div>
           )}
         </section>
-        <Cart items={cart}  />
+        <Cart items={cart} onRemove={handleRemove} />
       </div>
     </main>
   );
